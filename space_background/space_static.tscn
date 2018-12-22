@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://space_background/assets/space_parallax/parallax-space-backgound.png" type="Texture" id=1]
+
+[node name="space_static" type="ParallaxBackground"]
+scroll_ignore_camera_zoom = true
+
+[node name="space" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 1, 1 )
+
+[node name="Sprite" type="Sprite" parent="space"]
+scale = Vector2( 4.8, 4.8 )
+texture = ExtResource( 1 )
+centered = false
+

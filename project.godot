@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="24h_Capsule"
+run/main_scene="res://game_world/game_world.tscn"
 config/icon="res://icon.png"
 
 [rendering]
