@@ -1,0 +1,148 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://weapon_system/projectiles/b_laser/b_laser.gd" type="Script" id=1]
+[ext_resource path="res://weapon_system/projectiles/b_laser/assets/laser/Sprite-0006.png" type="Texture" id=2]
+[ext_resource path="res://weapon_system/projectiles/b_laser/assets/laser/Sprite-0007.png" type="Texture" id=3]
+[ext_resource path="res://weapon_system/projectiles/b_laser/assets/laser/Sprite-0001.png" type="Texture" id=4]
+[ext_resource path="res://weapon_system/projectiles/b_laser/assets/laser/Sprite-0002.png" type="Texture" id=5]
+[ext_resource path="res://weapon_system/projectiles/b_laser/assets/laser/Sprite-0003.png" type="Texture" id=6]
+[ext_resource path="res://weapon_system/projectiles/b_laser/assets/laser/Sprite-0004.png" type="Texture" id=7]
+[ext_resource path="res://weapon_system/projectiles/b_laser/assets/laser/Sprite-0005.png" type="Texture" id=8]
+
+
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "tailAnim",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "headAnim",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=3]
+
+length = 0.2
+loop = true
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("tail:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("head:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ false, true ]
+}
+
+[node name="b_laser" type="RayCast2D"]
+
+position = Vector2( 93.5268, 44.6922 )
+rotation = -1.5708
+scale = Vector2( 3, 3 )
+z_index = 1
+z_as_relative = false
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 500 )
+collision_mask = 3
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="body" type="Sprite" parent="." index="0"]
+
+position = Vector2( 33.8573, 18.069 )
+rotation = 1.5708
+scale = Vector2( 1.00772, 1.28001 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 10, 10, 12 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="body2" type="Sprite" parent="." index="1"]
+
+visible = false
+position = Vector2( 51.5235, 18.0304 )
+rotation = 1.5708
+scale = Vector2( 1, 1.29449 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 10, 10, 12 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="tail" type="AnimatedSprite" parent="." index="2"]
+
+position = Vector2( 33.8094, -0.307358 )
+frames = SubResource( 1 )
+animation = "tailAnim"
+frame = 1
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="head" type="AnimatedSprite" parent="." index="3"]
+
+position = Vector2( 35.3461, 99.2766 )
+rotation = -3.14159
+frames = SubResource( 2 )
+animation = "headAnim"
+frame = 2
+_sections_unfolded = [ "Transform" ]
+
+[node name="laserAnim" type="AnimationPlayer" parent="." index="4"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/laser_strech = SubResource( 3 )
+blend_times = [  ]
+
+

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://weapon_system/weapon_system.gd" type="Script" id=1]
+[ext_resource path="res://weapon_system/weapon_config.gd" type="Script" id=2]
+[ext_resource path="res://weapon_system/bullet_sys.gd" type="Script" id=3]
+[ext_resource path="res://weapon_system/ray_sys.gd" type="Script" id=4]
+
+[node name="weapon_system" type="Node"]
+
+script = ExtResource( 1 )
+global_node_path = null
+local_node_path = null
+from_path = null
+to_path = null
+trigger_name = null
+
+[node name="weapon_config" type="Node" parent="." index="0"]
+
+script = ExtResource( 2 )
+
+[node name="bullet_sys" type="Node" parent="." index="1"]
+
+script = ExtResource( 3 )
+
+[node name="ray_sys" type="Node" parent="." index="2"]
+
+script = ExtResource( 4 )
+
+[node name="projectile_sys" type="Node" parent="." index="3"]
+
+
