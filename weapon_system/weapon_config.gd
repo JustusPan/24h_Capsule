@@ -14,7 +14,7 @@ func init_params(params):
 	trigger_name = params.trigger_name
 	pass
 
-#var b_pistol = preload("res://bullets/b_pistol/b_pistol.tscn")
+var b_pistol = preload("./projectiles/b_pistol/b_pistol.tscn")
 var b_laser = preload("./projectiles/b_laser/b_laser.tscn")
 var b_fireball = preload("./projectiles/b_fireball/b_fireball.tscn")
 #var b_icerhombus = preload("res://bullets/b_ice_rhombus/b_ice_rhombus.tscn")
@@ -24,13 +24,16 @@ var b_windblade = preload("./projectiles/b_wind_blade/b_wind_blade.tscn")
 var weapon_dict = {
 	"windblade": b_windblade,
 	"icerhombuspd": b_icerhombus_pd,
+	"rifle": b_pistol,
 	#"icerhombus": b_icerhombus,
-	"fireball": b_fireball
+	"fireball": b_fireball,
+	
 }
 
 var weapon_phy_tag = {
 	"windblade": "rigid_body",
 	"icerhombuspd": "rigid_body",
+	"rifle": "rigid_body",
 #	"icerhombus": "rigid_body",
 	"fireball": "rigid_body"
 }
@@ -38,6 +41,7 @@ var weapon_phy_tag = {
 var weapon_single_shot = {
 	"windblade": true,
 	"icerhombuspd": true,
+	"rifle": true,
 #	"icerhombus": true,
 	"fireball": true
 }
@@ -45,6 +49,7 @@ var weapon_single_shot = {
 var weapon_fusillade = {
 	"windblade": 0.5,
 	"icerhombuspd": 0.02,
+	"rifle": 0.02,
 #	"icerhombus": 0.2,
 	"fireball": 0.02
 }
@@ -52,6 +57,7 @@ var weapon_fusillade = {
 var weapon_fusillade_delay = {
 	"windblade": 0,
 	"icerhombuspd": 0,
+	"rifle": 0,
 #	"icerhombus": 0,
 	"fireball": 0
 #	"machinegun": 0.5,
@@ -66,6 +72,11 @@ var weapon_scattering = {
 		"is_random": false
 	},
 	"icerhombuspd": {
+		"degree": 0,
+		"count": 1,
+		"is_random": false
+	},
+	"rifle": {
 		"degree": 0,
 		"count": 1,
 		"is_random": false

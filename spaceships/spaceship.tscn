@@ -4,7 +4,6 @@
 [ext_resource path="res://spaceships/assets/spaceship_test.png" type="Texture" id=2]
 
 [node name="Spaceship" type="KinematicBody2D"]
-editor/display_folded = true
 script = ExtResource( 1 )
 mode = 2
 
@@ -13,7 +12,10 @@ position = Vector2( 15.2741, -0.184025 )
 polygon = PoolVector2Array( -32, -8, -24, -16, -8, -16, 16, -8, 16, 8, -8, 16, -24, 16, -32, 8 )
 
 [node name="bullet_spawner" type="Position2D" parent="."]
-position = Vector2( 55, 0 )
+position = Vector2( 44.833, 0 )
+
+[node name="forward" type="Position2D" parent="bullet_spawner"]
+position = Vector2( 30.953, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 13.608, 0 )

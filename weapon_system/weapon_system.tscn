@@ -6,26 +6,17 @@
 [ext_resource path="res://weapon_system/ray_sys.gd" type="Script" id=4]
 
 [node name="weapon_system" type="Node"]
-
 script = ExtResource( 1 )
-global_node_path = null
-local_node_path = null
-from_path = null
-to_path = null
-trigger_name = null
+trigger_name = "fire"
 
-[node name="weapon_config" type="Node" parent="." index="0"]
-
+[node name="weapon_config" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="bullet_sys" type="Node" parent="." index="1"]
-
+[node name="bullet_sys" type="Node" parent="."]
 script = ExtResource( 3 )
 
-[node name="ray_sys" type="Node" parent="." index="2"]
-
+[node name="ray_sys" type="Node" parent="."]
 script = ExtResource( 4 )
 
-[node name="projectile_sys" type="Node" parent="." index="3"]
-
+[node name="projectile_sys" type="Node" parent="."]
 

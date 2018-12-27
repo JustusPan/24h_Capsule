@@ -1,18 +1,17 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://bullets/b_wind_blade/b_wind_blade.gd" type="Script" id=1]
-[ext_resource path="res://bullets/b_wind_blade/assets/wind22_24.png" type="Texture" id=2]
+[ext_resource path="res://weapon_system/projectiles/b_wind_blade/b_wind_blade.gd" type="Script" id=1]
+[ext_resource path="res://weapon_system/projectiles/b_wind_blade/assets/wind22_24.png" type="Texture" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="PhysicsMaterial" id=1]
 
-custom_solver_bias = 0.0
-radius = 10.0
+friction = 0.0
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="CircleShape2D" id=2]
 
-length = 1.0
-loop = false
-step = 0.1
+
+[sub_resource type="Animation" id=3]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath("Area2D:monitoring")
 tracks/0/interp = 1
@@ -52,9 +51,8 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
-resource_name = "rotating_1"
 length = 0.24
 loop = true
 step = 0.01
@@ -71,9 +69,8 @@ tracks/0/keys = {
 "values": [ 0, 23 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 
-resource_name = "rotating_2"
 length = 0.24
 loop = true
 step = 0.01
@@ -90,9 +87,8 @@ tracks/0/keys = {
 "values": [ 6, 23, 0, 5 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
-resource_name = "rotating_3"
 length = 0.24
 loop = true
 step = 0.01
@@ -109,9 +105,8 @@ tracks/0/keys = {
 "values": [ 12, 23, 0, 11 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 
-resource_name = "rotating_4"
 length = 0.24
 loop = true
 step = 0.01
@@ -128,100 +123,60 @@ tracks/0/keys = {
 "values": [ 18, 23, 0, 17 ]
 }
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=8]
 
-custom_solver_bias = 0.0
-radius = 31.6105
+radius = 8.73843
 
 [node name="b_wind_blade" type="RigidBody2D"]
-
-input_pickable = false
 collision_layer = 32768
 collision_mask = 0
 mode = 2
-mass = 1.0
-friction = 0.0
-bounce = 0.0
+physics_material_override = SubResource( 1 )
 gravity_scale = 0.0
-custom_integrator = false
 continuous_cd = 1
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
 linear_damp = 0.0
-angular_velocity = 0.0
 angular_damp = 1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Angular", "Audio Bus", "Collision", "Linear", "Transform", "Visibility", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="disabledShape" type="CollisionShape2D" parent="." index="0"]
-
+[node name="disabledShape" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 disabled = true
-_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
-
-scale = Vector2( 4, 4 )
+[node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 vframes = 5
 hframes = 5
-_sections_unfolded = [ "Animation", "Transform", "Z Index" ]
 
-[node name="anim" type="AnimationPlayer" parent="." index="2"]
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/delete_bullet = SubResource( 3 )
+anims/rotating_1 = SubResource( 4 )
+anims/rotating_2 = SubResource( 5 )
+anims/rotating_3 = SubResource( 6 )
+anims/rotating_4 = SubResource( 7 )
 
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-anims/delete_bullet = SubResource( 2 )
-anims/rotating_1 = SubResource( 3 )
-anims/rotating_2 = SubResource( 4 )
-anims/rotating_3 = SubResource( 5 )
-anims/rotating_4 = SubResource( 6 )
-blend_times = [  ]
-
-[node name="Timer" type="Timer" parent="." index="3"]
-
-process_mode = 1
-wait_time = 1.0
+[node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
 
-[node name="Area2D" type="Area2D" parent="." index="4"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
+[node name="Area2D" type="Area2D" parent="."]
 gravity = 0.0
 linear_damp = 0.0
-angular_damp = 1.0
 collision_layer = 32768
 collision_mask = 2049
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, -0.231964 )
-shape = SubResource( 7 )
-_sections_unfolded = [ "Transform" ]
+shape = SubResource( 8 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-
-
