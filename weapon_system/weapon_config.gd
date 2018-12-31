@@ -14,17 +14,13 @@ func init_params(params):
 	trigger_name = params.trigger_name
 	pass
 
-var b_pistol = preload("./projectiles/b_pistol/b_pistol.tscn")
 var b_laser = preload("./projectiles/b_laser/b_laser.tscn")
 var b_fireball = preload("./projectiles/b_fireball/b_fireball.tscn")
-#var b_icerhombus = preload("res://bullets/b_ice_rhombus/b_ice_rhombus.tscn")
-var b_icerhombus_pd = preload("./projectiles/b_ice_rhombus_predefined_direction/b_ice_rhombus_predefined_direction.tscn") # pd: predefined direction
-var b_windblade = preload("./projectiles/b_wind_blade/b_wind_blade.tscn")
 
 var weapon_dict = {
-	"windblade": b_windblade,
-	"icerhombuspd": b_icerhombus_pd,
-	"rifle": b_pistol,
+	"windblade": b_fireball,
+	"icerhombuspd": b_fireball,
+	"rifle": b_fireball,
 	#"icerhombus": b_icerhombus,
 	"fireball": b_fireball,
 	
@@ -49,7 +45,7 @@ var weapon_single_shot = {
 var weapon_fusillade = {
 	"windblade": 0.5,
 	"icerhombuspd": 0.02,
-	"rifle": 0.02,
+	"rifle": 1,
 #	"icerhombus": 0.2,
 	"fireball": 0.02
 }

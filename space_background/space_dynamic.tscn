@@ -10,39 +10,35 @@ scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.1, 0.1 )
-motion_mirroring = Vector2( 1280, 720 )
+motion_mirroring = Vector2( 267, 150 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer"]
-scale = Vector2( 4.8, 4.8 )
 texture = ExtResource( 1 )
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.15, 0.15 )
-motion_mirroring = Vector2( 1280, 720 )
+motion_mirroring = Vector2( 267, 150 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer2"]
-scale = Vector2( 4.8, 4.8 )
 texture = ExtResource( 2 )
 centered = false
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.5, 0.5 )
-motion_mirroring = Vector2( 2000, 1500 )
+motion_mirroring = Vector2( 417, 312 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer3"]
-position = Vector2( 140, 80 )
-scale = Vector2( 4.8, 4.8 )
+position = Vector2( 29, 17 )
 texture = ExtResource( 3 )
 centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.85, 0.85 )
-motion_mirroring = Vector2( 3000, 2000 )
+motion_mirroring = Vector2( 625, 417 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer4"]
-position = Vector2( 340, 190 )
-scale = Vector2( 4.8, 4.8 )
+position = Vector2( 71, 40 )
 texture = ExtResource( 4 )
 centered = false
 

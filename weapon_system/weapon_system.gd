@@ -23,7 +23,7 @@ onready var params = {
 }
 
 #var order_list = ["windblade","icerhombuspd","fireball","laser"]
-var order_list = ["windblade","icerhombuspd","fireball","laser","rifle"]
+var order_list = ["windblade","icerhombuspd","fireball","rifle"]
 onready var sub_system = {
 	"windblade": $bullet_sys,
 	"icerhombuspd": $bullet_sys,

@@ -12,6 +12,8 @@
 [node name="space_dynamic" parent="." instance=ExtResource( 2 )]
 
 [node name="Spaceship" parent="." instance=ExtResource( 3 )]
+position = Vector2( 126.314, 76.2652 )
+mode = 0
 
 [node name="MainCamera" type="Camera2D" parent="Spaceship"]
 current = true

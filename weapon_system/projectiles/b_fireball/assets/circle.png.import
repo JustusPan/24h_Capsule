@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/whiteball_02.png-3cf556e344cad8e40039b11cefc4ff93.stex"
+path="res://.import/circle.png-6e110265e54a82d1e1561689c27d2458.stex"
 
 [deps]
 
-source_file="res://weapon_system/projectiles/b_ice_rhombus_predefined_direction/assets/whiteball_02.png"
-dest_files=[ "res://.import/whiteball_02.png-3cf556e344cad8e40039b11cefc4ff93.stex" ]
+source_file="res://weapon_system/projectiles/b_fireball/assets/circle.png"
+dest_files=[ "res://.import/circle.png-6e110265e54a82d1e1561689c27d2458.stex" ]
 
 [params]
 
