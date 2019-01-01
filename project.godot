@@ -19,6 +19,11 @@ config/name="24h_Capsule"
 run/main_scene="res://game_world/game_world.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+global_manager="*res://auto_load/game_data.gd"
+util_lib="*res://auto_load/lib/util_lib.gd"
+
 [debug]
 
 gdscript/warnings/enable=false
@@ -72,6 +77,12 @@ next_weapon={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777218,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_12="Enemy"
+2d_physics/layer_20="Terrain"
 
 [rendering]
 

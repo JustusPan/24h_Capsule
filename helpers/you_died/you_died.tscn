@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://helpers/source_code_pro_explanations _LARGE.tres" type="DynamicFont" id=1]
+
+[node name="YouDied" type="Label"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -84.0
+margin_top = -22.5
+margin_right = 84.0
+margin_bottom = 22.5
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.8, 0.364706, 0.0745098, 1 )
+text = "YOU DIED"
+align = 1
+valign = 1
+

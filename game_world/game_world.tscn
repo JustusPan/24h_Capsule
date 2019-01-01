@@ -1,32 +1,360 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://space_background/space_static.tscn" type="PackedScene" id=1]
-[ext_resource path="res://space_background/space_dynamic.tscn" type="PackedScene" id=2]
-[ext_resource path="res://spaceships/spaceship.tscn" type="PackedScene" id=3]
-[ext_resource path="res://weapon_system/weapon_system.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game_world/game_world.gd" type="Script" id=1]
+[ext_resource path="res://game_world/world_handle.gd" type="Script" id=2]
+[ext_resource path="res://helpers/fps_visualizer/fps_visualizer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://helpers/source_code_pro_explanations.tres" type="DynamicFont" id=4]
+[ext_resource path="res://helpers/you_died/you_died.tscn" type="PackedScene" id=5]
+[ext_resource path="res://space_background/space_static.tscn" type="PackedScene" id=6]
+[ext_resource path="res://space_background/space_dynamic.tscn" type="PackedScene" id=7]
+[ext_resource path="res://spaceships/spaceship.tscn" type="PackedScene" id=8]
+[ext_resource path="res://weapon_system/weapon_system.tscn" type="PackedScene" id=9]
+[ext_resource path="res://enemy_spawner/enemy_spawner.tscn" type="PackedScene" id=10]
+[ext_resource path="res://enemys/soldier_crab/soldier_crab.tscn" type="PackedScene" id=11]
+[ext_resource path="res://utils/text_FX/text_popup_FX.tscn" type="PackedScene" id=12]
 
-[node name="GameWorld" type="Node2D"]
+[sub_resource type="Animation" id=1]
 
-[node name="space_static" parent="." instance=ExtResource( 1 )]
+resource_name = "setup"
+tracks/0/type = "value"
+tracks/0/path = NodePath("HUD/YouDied:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HUD/YouDied:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HUD/Curtain:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HUD/PressAnyKey:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
-[node name="space_dynamic" parent="." instance=ExtResource( 2 )]
+[sub_resource type="Animation" id=2]
 
-[node name="Spaceship" parent="." instance=ExtResource( 3 )]
+resource_name = "you_died"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("HUD/YouDied:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HUD/YouDied:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 1 ),
+"transitions": PoolRealArray( 0.615572, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HUD/Curtain:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HUD/Curtain:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HUD/PressAnyKey:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("HUD/PressAnyKey:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.9, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+
+extents = Vector2( 9.29431, 334.396 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+extents = Vector2( 495.813, 10 )
+
+[node name="GameWorld" type="Navigation2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 670.163 ],
+"_edit_vertical_guides_": [ 968.35, -18.9578 ]
+}
+
+[node name="worldHandle" type="Node" parent="."]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="worldAnim" type="AnimationPlayer" parent="."]
+pause_mode = 2
+anims/setup = SubResource( 1 )
+anims/you_died = SubResource( 2 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+pause_mode = 2
+
+[node name="Curtain" type="Panel" parent="HUD"]
+modulate = Color( 0, 0, 0, 0.2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="FPSVisualizer" parent="HUD" instance=ExtResource( 3 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -45.0
+margin_right = 0.0
+
+[node name="ScoreBoard" type="Label" parent="HUD"]
+margin_right = 56.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 4 )
+text = "Score: 0"
+
+[node name="HighScore" type="Label" parent="HUD"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -16.0
+margin_right = 56.0
+custom_fonts/font = ExtResource( 4 )
+text = "High Score: 0"
+
+[node name="YouDied" parent="HUD" instance=ExtResource( 5 )]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="PressAnyKey" type="Label" parent="HUD"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 77.1671
+margin_top = 90.8084
+margin_right = 168.167
+margin_bottom = 106.808
+custom_fonts/font = ExtResource( 4 )
+text = "Press Any Key"
+
+[node name="space_static" parent="." instance=ExtResource( 6 )]
+
+[node name="space_dynamic" parent="." instance=ExtResource( 7 )]
+
+[node name="Spaceship" parent="." instance=ExtResource( 8 )]
 position = Vector2( 126.314, 76.2652 )
 mode = 0
 
 [node name="MainCamera" type="Camera2D" parent="Spaceship"]
 current = true
+limit_left = -18
+limit_top = -18
+limit_right = 968
+limit_bottom = 670
 drag_margin_left = 0.0
 drag_margin_top = 0.0
 drag_margin_right = 0.0
 drag_margin_bottom = 0.0
 
-[node name="weapon_system" parent="Spaceship" instance=ExtResource( 4 )]
+[node name="weapon_system" parent="Spaceship" instance=ExtResource( 9 )]
 global_node_path = NodePath("../..")
 local_node_path = NodePath("..")
 from_path = NodePath("../bullet_spawner")
 to_path = NodePath("../bullet_spawner/forward")
 
+[node name="enemy_spawner" parent="." instance=ExtResource( 10 )]
+position = Vector2( -121.663, 231.825 )
+nav_path = NodePath("..")
+target_path = NodePath("../Spaceship")
+mount_path = NodePath("..")
+instance_scene = ExtResource( 11 )
+spawn_interval = 1.0
+
+[node name="enemy_spawner2" parent="." instance=ExtResource( 10 )]
+position = Vector2( -104.571, 463.088 )
+nav_path = NodePath("..")
+target_path = NodePath("../Spaceship")
+mount_path = NodePath("..")
+instance_scene = ExtResource( 11 )
+spawn_interval = 1.0
+
+[node name="enemy_spawner3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 277.929, 757.634 )
+nav_path = NodePath("..")
+target_path = NodePath("../Spaceship")
+mount_path = NodePath("..")
+instance_scene = ExtResource( 11 )
+spawn_interval = 1.0
+
+[node name="enemy_spawner4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 646.251, 753.757 )
+nav_path = NodePath("..")
+target_path = NodePath("../Spaceship")
+mount_path = NodePath("..")
+instance_scene = ExtResource( 11 )
+spawn_interval = 1.0
+
+[node name="enemy_spawner5" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1111.5, 444.884 )
+nav_path = NodePath("..")
+target_path = NodePath("../Spaceship")
+mount_path = NodePath("..")
+instance_scene = ExtResource( 11 )
+spawn_interval = 1.0
+
+[node name="enemy_spawner6" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1117.96, 157.981 )
+nav_path = NodePath("..")
+target_path = NodePath("../Spaceship")
+mount_path = NodePath("..")
+instance_scene = ExtResource( 11 )
+spawn_interval = 1.0
+
+[node name="enemy_spawner7" parent="." instance=ExtResource( 10 )]
+position = Vector2( 665.636, -137.968 )
+nav_path = NodePath("..")
+target_path = NodePath("../Spaceship")
+mount_path = NodePath("..")
+instance_scene = ExtResource( 11 )
+spawn_interval = 1.0
+
+[node name="enemy_spawner8" parent="." instance=ExtResource( 10 )]
+position = Vector2( 305.069, -137.968 )
+nav_path = NodePath("..")
+target_path = NodePath("../Spaceship")
+mount_path = NodePath("..")
+instance_scene = ExtResource( 11 )
+spawn_interval = 1.0
+
+[node name="TextPopupFX" parent="." instance=ExtResource( 12 )]
+editor/display_folded = true
+
+[node name="Boundaries" type="Node2D" parent="."]
+editor/display_folded = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Left" type="StaticBody2D" parent="Boundaries"]
+collision_layer = 524288
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Left"]
+position = Vector2( -9.90533, 330.753 )
+shape = SubResource( 3 )
+
+[node name="Right" type="StaticBody2D" parent="Boundaries"]
+collision_layer = 524288
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Right"]
+position = Vector2( 956.379, 335.513 )
+shape = SubResource( 3 )
+
+[node name="Top" type="StaticBody2D" parent="Boundaries"]
+collision_layer = 524288
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Top"]
+position = Vector2( 471.242, -7.93336 )
+shape = SubResource( 4 )
+
+[node name="Bottom" type="StaticBody2D" parent="Boundaries"]
+collision_layer = 524288
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Bottom"]
+position = Vector2( 469.655, 660.056 )
+shape = SubResource( 4 )
+
 
 [editable path="Spaceship"]
+
+[editable path="TextPopupFX"]

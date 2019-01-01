@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://utils/text_FX/text_anim/S2_text_by_tween_font_size/popup_text_by_tween.gd" type="Script" id=1]
+[ext_resource path="res://utils/text_FX/text_anim/font/ArchivoNarrow-Regular.otf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+
+resource_local_to_scene = true
+size = 40
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="popup_text_by _tween" type="Position2D"]
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 832.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "test_font_popup_which_is_controlled_by_tween"
+align = 1
+valign = 1
+
+[node name="Tween" type="Tween" parent="."]
+

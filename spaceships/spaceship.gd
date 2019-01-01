@@ -18,9 +18,10 @@ export(int, "Direct", "Constant", "Smooth") var mode = MODE_DIRECT
 const FLOOR_NORMAL = Vector2(0,0) # (0,0) for top-down game
 
 #character info
-const VEL_MAGNITUDE = 200
+const VEL_MAGNITUDE = 100
 #const HP_MAX = 100
 #var hp = 100
+var die = false
 
 var m_motion_input = Vector2(0,0)
 	
@@ -53,18 +54,15 @@ func _physics_process(delta):
 #	# handle motion input
 ##	m_motion_input = Vector2(0,0)
 	
-
+func game_over():
+	util_lib.emit_signal("game_over")
 	
-#func hurt_by_enemy():
-#	if (hp < 0):
-#		return
-#	print("hurt_by_enemy")
-#	hp -= 3
-#	emit_signal("healthPointchanged",hp)
-#	if (hp < 0):
-#		#$controlAnim.play("dead")
-#		emit_signal("dead")
-#	pass
+func hurt_by_enemy():
+	print("hurt_by_enemy")
+	if not die:
+		die = true
+		$AnimationPlayer.play("dead")
+		pass
 
 
 #func _on_hitBox_body_entered(body):

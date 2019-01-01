@@ -43,7 +43,7 @@ var weapon_single_shot = {
 }
 
 var weapon_fusillade = {
-	"windblade": 0.5,
+	"windblade": 0.8,
 	"icerhombuspd": 0.02,
 	"rifle": 1,
 #	"icerhombus": 0.2,
@@ -64,7 +64,7 @@ var weapon_fusillade_delay = {
 var weapon_scattering = {
 	"windblade": {
 		"degree": 60,
-		"count": 5,
+		"count": 20,
 		"is_random": false
 	},
 	"icerhombuspd": {

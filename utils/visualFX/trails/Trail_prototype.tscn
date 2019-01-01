@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://utils/visualFX/trails/assets/tail_texture_triangle.png" type="Texture" id=1]
+[ext_resource path="res://utils/visualFX/trails/Trail_prototype.gd" type="Script" id=2]
+
+[node name="Trail" type="Line2D"]
+show_behind_parent = true
+width = 1.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 1 )
+texture_mode = 2
+joint_mode = 2
+begin_cap_mode = 1
+end_cap_mode = 2
+script = ExtResource( 2 )
+trailLength = 100
+trail_mode = 1
+
