@@ -1,7 +1,7 @@
 extends KinematicBody2D
 #signal healthPointchanged(value)
 #signal toNextWeapon()
-#signal dead()
+signal dead()
 
 # Member variables
 const MODE_DIRECT = 0
@@ -27,8 +27,8 @@ var m_motion_input = Vector2(0,0)
 	
 func _physics_process(delta):
 	#var mpos = get_viewport().get_mouse_position()
-	var mpos = get_global_mouse_position()
 	
+	var mpos = get_global_mouse_position()
 	if (mode == MODE_DIRECT):
 		look_at(mpos)
 	elif (mode == MODE_CONSTANT):
@@ -64,6 +64,9 @@ func hurt_by_enemy():
 		$AnimationPlayer.play("dead")
 		pass
 
+func die():
+	set_physics_process(false)
+	emit_signal("dead")
 
 #func _on_hitBox_body_entered(body):
 ##	if body.get_meta("tag") == "enemy":

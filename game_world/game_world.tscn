@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://game_world/game_world.gd" type="Script" id=1]
 [ext_resource path="res://game_world/world_handle.gd" type="Script" id=2]
@@ -9,9 +9,10 @@
 [ext_resource path="res://space_background/space_dynamic.tscn" type="PackedScene" id=7]
 [ext_resource path="res://spaceships/spaceship.tscn" type="PackedScene" id=8]
 [ext_resource path="res://weapon_system/weapon_system.tscn" type="PackedScene" id=9]
-[ext_resource path="res://enemy_spawner/enemy_spawner.tscn" type="PackedScene" id=10]
-[ext_resource path="res://enemys/soldier_crab/soldier_crab.tscn" type="PackedScene" id=11]
-[ext_resource path="res://utils/text_FX/text_popup_FX.tscn" type="PackedScene" id=12]
+[ext_resource path="res://camera_mount/camera_mount.tscn" type="PackedScene" id=10]
+[ext_resource path="res://enemy_spawner/enemy_spawner.tscn" type="PackedScene" id=11]
+[ext_resource path="res://enemys/soldier_crab/soldier_crab.tscn" type="PackedScene" id=12]
+[ext_resource path="res://utils/text_FX/text_popup_FX.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Animation" id=1]
 
@@ -208,19 +209,9 @@ text = "Press Any Key"
 [node name="space_dynamic" parent="." instance=ExtResource( 7 )]
 
 [node name="Spaceship" parent="." instance=ExtResource( 8 )]
+editor/display_folded = true
 position = Vector2( 126.314, 76.2652 )
 mode = 0
-
-[node name="MainCamera" type="Camera2D" parent="Spaceship"]
-current = true
-limit_left = -18
-limit_top = -18
-limit_right = 968
-limit_bottom = 670
-drag_margin_left = 0.0
-drag_margin_top = 0.0
-drag_margin_right = 0.0
-drag_margin_bottom = 0.0
 
 [node name="weapon_system" parent="Spaceship" instance=ExtResource( 9 )]
 global_node_path = NodePath("../..")
@@ -228,71 +219,74 @@ local_node_path = NodePath("..")
 from_path = NodePath("../bullet_spawner")
 to_path = NodePath("../bullet_spawner/forward")
 
-[node name="enemy_spawner" parent="." instance=ExtResource( 10 )]
+[node name="CameraMount" parent="." instance=ExtResource( 10 )]
+target_path = NodePath("../Spaceship")
+
+[node name="enemy_spawner" parent="." instance=ExtResource( 11 )]
 position = Vector2( -121.663, 231.825 )
 nav_path = NodePath("..")
 target_path = NodePath("../Spaceship")
 mount_path = NodePath("..")
-instance_scene = ExtResource( 11 )
+instance_scene = ExtResource( 12 )
 spawn_interval = 1.0
 
-[node name="enemy_spawner2" parent="." instance=ExtResource( 10 )]
+[node name="enemy_spawner2" parent="." instance=ExtResource( 11 )]
 position = Vector2( -104.571, 463.088 )
 nav_path = NodePath("..")
 target_path = NodePath("../Spaceship")
 mount_path = NodePath("..")
-instance_scene = ExtResource( 11 )
+instance_scene = ExtResource( 12 )
 spawn_interval = 1.0
 
-[node name="enemy_spawner3" parent="." instance=ExtResource( 10 )]
+[node name="enemy_spawner3" parent="." instance=ExtResource( 11 )]
 position = Vector2( 277.929, 757.634 )
 nav_path = NodePath("..")
 target_path = NodePath("../Spaceship")
 mount_path = NodePath("..")
-instance_scene = ExtResource( 11 )
+instance_scene = ExtResource( 12 )
 spawn_interval = 1.0
 
-[node name="enemy_spawner4" parent="." instance=ExtResource( 10 )]
+[node name="enemy_spawner4" parent="." instance=ExtResource( 11 )]
 position = Vector2( 646.251, 753.757 )
 nav_path = NodePath("..")
 target_path = NodePath("../Spaceship")
 mount_path = NodePath("..")
-instance_scene = ExtResource( 11 )
+instance_scene = ExtResource( 12 )
 spawn_interval = 1.0
 
-[node name="enemy_spawner5" parent="." instance=ExtResource( 10 )]
+[node name="enemy_spawner5" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1111.5, 444.884 )
 nav_path = NodePath("..")
 target_path = NodePath("../Spaceship")
 mount_path = NodePath("..")
-instance_scene = ExtResource( 11 )
+instance_scene = ExtResource( 12 )
 spawn_interval = 1.0
 
-[node name="enemy_spawner6" parent="." instance=ExtResource( 10 )]
+[node name="enemy_spawner6" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1117.96, 157.981 )
 nav_path = NodePath("..")
 target_path = NodePath("../Spaceship")
 mount_path = NodePath("..")
-instance_scene = ExtResource( 11 )
+instance_scene = ExtResource( 12 )
 spawn_interval = 1.0
 
-[node name="enemy_spawner7" parent="." instance=ExtResource( 10 )]
+[node name="enemy_spawner7" parent="." instance=ExtResource( 11 )]
 position = Vector2( 665.636, -137.968 )
 nav_path = NodePath("..")
 target_path = NodePath("../Spaceship")
 mount_path = NodePath("..")
-instance_scene = ExtResource( 11 )
+instance_scene = ExtResource( 12 )
 spawn_interval = 1.0
 
-[node name="enemy_spawner8" parent="." instance=ExtResource( 10 )]
+[node name="enemy_spawner8" parent="." instance=ExtResource( 11 )]
 position = Vector2( 305.069, -137.968 )
 nav_path = NodePath("..")
 target_path = NodePath("../Spaceship")
 mount_path = NodePath("..")
-instance_scene = ExtResource( 11 )
+instance_scene = ExtResource( 12 )
 spawn_interval = 1.0
 
-[node name="TextPopupFX" parent="." instance=ExtResource( 12 )]
+[node name="TextPopupFX" parent="." instance=ExtResource( 13 )]
 editor/display_folded = true
 
 [node name="Boundaries" type="Node2D" parent="."]

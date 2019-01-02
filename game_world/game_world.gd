@@ -24,9 +24,10 @@ func init_game():
 	global_manager.connect("high_score_changed",self,"on_high_score_changed")
 	util_lib.connect("game_over",self, "on_game_over")
 	
-	
-	
 	$HUD/HighScore.text = str("High Score: ") + str(global_manager.high_score)
+	
+	#init objects position
+	$CameraMount.global_position = $Spaceship.global_position
 
 func restart_game():
 	print("restart_game")
