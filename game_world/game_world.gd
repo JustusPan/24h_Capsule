@@ -8,7 +8,17 @@ extends Node2D
 func _ready():
 	Engine.target_fps = 60
 	init_game()
+	
+	#debug for loader
+	for i in range(1000000000):
+		pass
 	pass # Replace with function body.
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		SceneMgrAL.goto_scene("res://ui_design/main_menu/MainMenu.tscn")
+
+	pass
 
 func init_game(): 
 	var global_var = get_node("/root/global_manager")
@@ -18,7 +28,8 @@ func init_game():
 
 func restart_game():
 	print("restart_game")
-	get_tree().reload_current_scene()
+#	get_tree().reload_current_scene()
+	SceneMgrAL.goto_scene("res://game_world/game_world.tscn")
 	get_tree().paused = false
 	
 	#.reload_scene_from_path("./game_world.tscn")
