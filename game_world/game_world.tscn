@@ -209,7 +209,6 @@ text = "Press Any Key"
 [node name="space_dynamic" parent="." instance=ExtResource( 7 )]
 
 [node name="Spaceship" parent="." instance=ExtResource( 8 )]
-editor/display_folded = true
 position = Vector2( 126.314, 76.2652 )
 mode = 0
 

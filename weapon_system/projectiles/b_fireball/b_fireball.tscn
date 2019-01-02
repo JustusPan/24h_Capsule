@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://weapon_system/projectiles/b_fireball/b_fireball.gd" type="Script" id=1]
 [ext_resource path="res://weapon_system/projectiles/b_fireball/assets/circle.png" type="Texture" id=2]
 [ext_resource path="res://utils/visualFX/trails/Trail_prototype.tscn" type="PackedScene" id=3]
 [ext_resource path="res://weapon_system/projectiles/b_fireball/assets/explosion_yellow_16.png" type="Texture" id=4]
+[ext_resource path="res://weapon_system/projectiles/b_fireball/assets/sounds/retro-laser-shot-03.wav" type="AudioStream" id=5]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -236,6 +237,11 @@ visible = false
 z_index = 1
 texture = ExtResource( 4 )
 hframes = 8
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=[
+"SFX",
+]]
+stream = ExtResource( 5 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

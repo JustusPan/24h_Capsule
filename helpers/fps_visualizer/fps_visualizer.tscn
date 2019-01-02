@@ -4,7 +4,7 @@
 [ext_resource path="res://helpers/source_code_pro_explanations.tres" type="DynamicFont" id=2]
 
 [node name="FPSVisualizer" type="Panel"]
-self_modulate = Color( 1, 1, 1, 0.497255 )
+self_modulate = Color( 1, 1, 1, 0 )
 margin_right = 45.0
 margin_bottom = 15.0
 script = ExtResource( 1 )

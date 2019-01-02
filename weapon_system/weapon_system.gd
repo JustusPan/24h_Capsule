@@ -23,13 +23,14 @@ onready var params = {
 }
 
 #var order_list = ["windblade","icerhombuspd","fireball","laser"]
-var order_list = ["windblade","icerhombuspd","fireball","rifle"]
+var order_list = ["rifle","windblade","icerhombuspd","fireball","ultra"]
 onready var sub_system = {
 	"windblade": $bullet_sys,
 	"icerhombuspd": $bullet_sys,
 #	"icerhombus": $bullet_sys,
 	"rifle": $bullet_sys,
 	"fireball": $bullet_sys,
+	"ultra": $bullet_sys,
 	"laser": $ray_sys
 }
 
@@ -64,7 +65,7 @@ func toNextWeapon():
 # override
 
 func _ready():
-	switch_weapon_to("windblade")
+	switch_weapon_to("rifle")
 	set_physics_process(true)
 	set_process_input(true)
 	pass

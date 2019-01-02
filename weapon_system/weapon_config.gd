@@ -21,6 +21,7 @@ var weapon_dict = {
 	"windblade": b_fireball,
 	"icerhombuspd": b_fireball,
 	"rifle": b_fireball,
+	"ultra": b_fireball,
 	#"icerhombus": b_icerhombus,
 	"fireball": b_fireball,
 	
@@ -30,6 +31,7 @@ var weapon_phy_tag = {
 	"windblade": "rigid_body",
 	"icerhombuspd": "rigid_body",
 	"rifle": "rigid_body",
+	"ultra": "rigid_body",
 #	"icerhombus": "rigid_body",
 	"fireball": "rigid_body"
 }
@@ -38,6 +40,7 @@ var weapon_single_shot = {
 	"windblade": true,
 	"icerhombuspd": true,
 	"rifle": true,
+	"ultra": false,
 #	"icerhombus": true,
 	"fireball": true
 }
@@ -45,7 +48,8 @@ var weapon_single_shot = {
 var weapon_fusillade = {
 	"windblade": 0.8,
 	"icerhombuspd": 0.02,
-	"rifle": 1,
+	"rifle": 0,
+	"ultra": 0.02,
 #	"icerhombus": 0.2,
 	"fireball": 0.02
 }
@@ -53,7 +57,8 @@ var weapon_fusillade = {
 var weapon_fusillade_delay = {
 	"windblade": 0,
 	"icerhombuspd": 0,
-	"rifle": 0,
+	"rifle": 5000,
+	"ultra": 3,
 #	"icerhombus": 0,
 	"fireball": 0
 #	"machinegun": 0.5,
@@ -80,6 +85,11 @@ var weapon_scattering = {
 	"fireball": {
 		"degree": 60,
 		"count": 1,
+		"is_random": true
+	},
+	"ultra": {
+		"degree": 90,
+		"count": 20,
 		"is_random": true
 	}
 }
