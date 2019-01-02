@@ -6,6 +6,11 @@ func _ready():
 #	$MarginContainer/HBoxContainer/CenterContainer/HBoxContainer/HighScore.text = "High Score: NULL"
 	pass
 
+func _physics_process(delta):
+	#Input.is_key_pressed(KEY_MASK_CTRL) and Input.is_key_pressed(KEY_MASK_SHIFT) and 
+	if Input.is_key_pressed(KEY_A) and Input.is_key_pressed(KEY_B) and Input.is_key_pressed(KEY_C) and Input.is_key_pressed(KEY_P):
+		global_manager.erase_save_data()
+	pass
 #func _on_NewGame_pressed():
 #	print("NewGame Pressed")
 #	#get_node("/root/global").goto_scene("res://arena/arena.tscn")

@@ -9,22 +9,24 @@ func _ready():
 	Engine.target_fps = 60
 	init_game()
 	
-	#debug for loader
-	for i in range(1000000000):
-		pass
 	pass # Replace with function body.
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
+		global_manager.save_game()
 		SceneMgrAL.goto_scene("res://ui_design/main_menu/MainMenu.tscn")
 
 	pass
 
 func init_game(): 
-	var global_var = get_node("/root/global_manager")
-	global_var.score = 0
-	global_var.connect("score_changed",self,"on_score_changed")
+#	global_var.score = 0
+	global_manager.connect("score_changed",self,"on_score_changed")
+	global_manager.connect("high_score_changed",self,"on_high_score_changed")
 	util_lib.connect("game_over",self, "on_game_over")
+	
+	
+	
+	$HUD/HighScore.text = str("High Score: ") + str(global_manager.high_score)
 
 func restart_game():
 	print("restart_game")
@@ -37,9 +39,16 @@ func restart_game():
 
 func on_score_changed(new_score):
 	$HUD/ScoreBoard.text = str("Score: ") + str(new_score)
+
+
+func on_high_score_changed(new_high_score):
+	$HUD/HighScore.text = str("High Score: ") + str(new_high_score)
+	pass
+	
 	
 func on_game_over():
 	$worldAnim.play("you_died")
 	util_lib.pause_game()
+	global_manager.save_game()
 	pass
 	

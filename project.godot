@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="24h_Capsule"
 run/main_scene="res://ui_design/main_menu/MainMenu.tscn"
-config/icon="res://icon.png"
+config/icon="res://capsule_icon.png"
 
 [autoload]
 
@@ -35,6 +35,8 @@ window/size/width=250
 window/size/height=150
 window/size/test_width=1280
 window/size/test_height=720
+mouse_cursor/custom_image="res://mouse_cursor_X4.png"
+mouse_cursor/custom_image_hotspot=Vector2( 31.5, 31.5 )
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 

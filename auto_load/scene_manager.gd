@@ -4,6 +4,7 @@ var loader = null
 var wait_frames
 var current_scene
 var default_loader_progress_scene = preload("res://ui_design/loader_progress/LoaderProgress.tscn")
+#var thread = Thread.new()
 
 const TIME_MAX = 100 # msec
 
@@ -97,12 +98,26 @@ func _deferred_goto_scene_with_progress(path): # game requests to switch to this
 	current_scene.free() # get rid of the old scene
 	# enter progross scene
 	set_new_scene(default_loader_progress_scene)
+	#thread.start(self,"prep_scene", ResourceLoader.load_interactive(path))
 
 	# start your "loading..." animation
 	#get_node("animation").play("loading")
 	print("start loading")
 
 	wait_frames = 1
+	
+#func prep_scene(interactive_ldr):
+#	while (true):
+#		var err = interactive_ldr.poll();
+#		if(err == ERR_FILE_EOF):
+#			call_deferred("_on_load_level_done");
+#			return interactive_ldr.get_resource();
+#
+#func _on_load_level_done():
+#	var level_res = thread.wait_to_finish()
+#	var scene = level_res.instance()
+#	#add_child(scene);
+#	get_node("/root").add_child(scene)
 
 func _deferred_goto_scene(path):
 	# Immediately free the current scene, there is no risk here.

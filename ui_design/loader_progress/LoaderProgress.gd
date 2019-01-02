@@ -6,7 +6,6 @@ extends Control
 
 func _ready():
 	$MarginContainer/ProgressBar.value = 0
-	set_process_input(true)
 	pass
 
 func set_progress(new_value):
@@ -15,7 +14,8 @@ func set_progress(new_value):
 	$MarginContainer/ProgressBar.value = $MarginContainer/ProgressBar.min_value + new_value * length
 	pass
 
-func _input(event):
-	if event.is_action_pressed("ui_right"):
-		$MarginContainer/ProgressBar.value += 1
-	pass
+
+#func _input(event):
+#	if event.is_action_pressed("ui_right"):
+#		$MarginContainer/ProgressBar.value += 1
+#	pass

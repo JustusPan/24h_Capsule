@@ -152,10 +152,6 @@ extents = Vector2( 495.813, 10 )
 
 [node name="GameWorld" type="Navigation2D"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_horizontal_guides_": [ 670.163 ],
-"_edit_vertical_guides_": [ 968.35, -18.9578 ]
-}
 
 [node name="worldHandle" type="Node" parent="."]
 pause_mode = 2
@@ -170,7 +166,7 @@ anims/you_died = SubResource( 2 )
 pause_mode = 2
 
 [node name="Curtain" type="Panel" parent="HUD"]
-modulate = Color( 0, 0, 0, 0.2 )
+modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -195,7 +191,7 @@ custom_fonts/font = ExtResource( 4 )
 text = "High Score: 0"
 
 [node name="YouDied" parent="HUD" instance=ExtResource( 5 )]
-modulate = Color( 1, 1, 1, 0 )
+visible = false
 
 [node name="PressAnyKey" type="Label" parent="HUD"]
 visible = false

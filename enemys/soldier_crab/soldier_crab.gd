@@ -135,7 +135,7 @@ func hit_by_bullet(fromWhom,damage):
 func increaseScore(value):
 	var global_var = get_node("/root/global_manager")
 	global_var.score += value
-	print("score = ", global_var.score) #debug_justus
+	#print("increaseScore score = ", global_var.score) #debug_justus
 	#global_var.set_meta("score",global_var.get_meta("score") + value)
 
 func _on_random_timer_timeout():
