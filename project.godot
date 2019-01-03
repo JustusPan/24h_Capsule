@@ -37,7 +37,7 @@ window/size/height=150
 mouse_cursor/custom_image="res://mouse_cursor_X4.png"
 mouse_cursor/custom_image_hotspot=Vector2( 31.5, 31.5 )
 window/stretch/mode="2d"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep"
 
 [input]
 
