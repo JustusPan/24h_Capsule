@@ -6,7 +6,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Engine.target_fps = 60
+	#ngine.target_fps = 60
 	init_game()
 	
 	pass # Replace with function body.
