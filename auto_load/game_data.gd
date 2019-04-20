@@ -50,30 +50,31 @@ func save_game():
 	
 # Note: This can be called from anywhere inside the tree.  This function is path independent.
 func load_game():
-	var save_game = File.new()
-	#var error_code = save_game.open("user://savegame.save", File.READ)
-	if not save_game.file_exists("user://24h_capsule.save"):
-	#if error_code != 0:
-		return # Error!  We don't have a save to load.
-
-	# We need to revert the game state so we're not cloning objects during loading.  This will vary wildly depending on the needs of a project, so take care with this step.
-	# For our example, we will accomplish this by deleting savable objects.
-#	var save_nodes = get_tree().get_nodes_in_group("Persist")
-#	for i in save_nodes:
-#		i.queue_free()
-
-	# Load the file line by line and process that dictionary to restore the object it represents
-	save_game.open_encrypted_with_pass("user://24h_capsule.save", File.READ,"internal_code_20190102")
-	while not save_game.eof_reached():
-		var current_line = parse_json(save_game.get_line())
-		print("global::load_game::typeof", typeof(current_line)) #debug_justus
-		print("global::load_game::", current_line) #debug_justus
-		if current_line == null:
-			continue 
-		if "global" == current_line["persist_token"]:
-			get_node("/root/global_manager").restore(current_line)
-		
-	save_game.close()
+	if OS.is_userfs_persistent():
+		var save_game = File.new()
+		#var error_code = save_game.open("user://savegame.save", File.READ)
+		if not save_game.file_exists("user://24h_capsule.save"):
+		#if error_code != 0:
+			return # Error!  We don't have a save to load.
+	
+		# We need to revert the game state so we're not cloning objects during loading.  This will vary wildly depending on the needs of a project, so take care with this step.
+		# For our example, we will accomplish this by deleting savable objects.
+	#	var save_nodes = get_tree().get_nodes_in_group("Persist")
+	#	for i in save_nodes:
+	#		i.queue_free()
+	
+		# Load the file line by line and process that dictionary to restore the object it represents
+		save_game.open_encrypted_with_pass("user://24h_capsule.save", File.READ,"internal_code_20190102")
+		while not save_game.eof_reached():
+			var current_line = parse_json(save_game.get_line())
+			print("global::load_game::typeof", typeof(current_line)) #debug_justus
+			print("global::load_game::", current_line) #debug_justus
+			if current_line == null:
+				continue 
+			if "global" == current_line["persist_token"]:
+				get_node("/root/global_manager").restore(current_line)
+			
+		save_game.close()
 
 func erase_save_data():
 	var dir = Directory.new()

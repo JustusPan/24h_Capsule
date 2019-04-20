@@ -4,6 +4,9 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	#$MarginContainer/HBoxContainer/CenterContainer/HBoxContainer/HighScore.text = "High Score: " + String(get_node("/root/global").get_meta("high_score"))
 #	$MarginContainer/HBoxContainer/CenterContainer/HBoxContainer/HighScore.text = "High Score: NULL"
+
+	if OS.get_name() == "HTML5":
+		$"MarginContainer/VBoxContainer/MenuOptions/Exit".visible = false
 	pass
 
 func _physics_process(delta):
@@ -29,7 +32,8 @@ func _on_Options_pressed():
 
 
 func _on_Exit_pressed():
-	get_tree().quit()
+	if OS.get_name() != "HTML5":
+		get_tree().quit()
 	pass # replace with function body
 
 
