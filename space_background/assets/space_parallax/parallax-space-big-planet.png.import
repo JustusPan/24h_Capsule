@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/parallax-space-big-planet.png-1c49a1b7d7ec29ca6bd312fc1c2cb31a.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

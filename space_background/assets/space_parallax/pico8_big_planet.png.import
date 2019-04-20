@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/pico8_big_planet.png-b9983b6e3fbbe23ccc5bd66de9ca8eba.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

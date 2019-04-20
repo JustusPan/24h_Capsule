@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/tail_texture_triangle.png-8fd4a93d1b43faa74193c00d8b4ece83.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

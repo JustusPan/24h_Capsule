@@ -15,7 +15,6 @@
 [ext_resource path="res://utils/text_FX/text_popup_FX.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Animation" id=1]
-
 resource_name = "setup"
 tracks/0/type = "value"
 tracks/0/path = NodePath("HUD/YouDied:visible")
@@ -67,7 +66,6 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-
 resource_name = "you_died"
 length = 1.2
 tracks/0/type = "value"
@@ -144,11 +142,9 @@ tracks/5/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=3]
-
 extents = Vector2( 9.29431, 334.396 )
 
 [sub_resource type="RectangleShape2D" id=4]
-
 extents = Vector2( 495.813, 10 )
 
 [node name="GameWorld" type="Navigation2D"]
@@ -222,7 +218,7 @@ to_path = NodePath("../bullet_spawner/forward")
 target_path = NodePath("../Spaceship")
 
 [node name="enemy_spawner" parent="." instance=ExtResource( 11 )]
-position = Vector2( -121.663, 231.825 )
+position = Vector2( 23.6433, 104.891 )
 nav_path = NodePath("..")
 target_path = NodePath("../Spaceship")
 mount_path = NodePath("..")

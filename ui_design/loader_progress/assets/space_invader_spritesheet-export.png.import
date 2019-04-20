@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/space_invader_spritesheet-export.png-3ac5209932ac8a7ed61bc6812a8adae6.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

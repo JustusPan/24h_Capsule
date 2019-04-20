@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/mouse_cursor.png-e2323f01fd6bd2a2b4de24680644aad3.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

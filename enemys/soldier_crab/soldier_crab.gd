@@ -25,7 +25,7 @@ var velocity = Vector2(0,0)
 var hp = 10
 onready var is_alive = true
 
-export(NodePath) var nav_path
+#export(NodePath) var nav_path
 export(NodePath) var attack_target_path
 var nav_ref
 var attack_target
@@ -74,8 +74,8 @@ func _ready():
 	set_meta("tag","enemy")
 	if attack_target_path != null:
 		attack_target = get_node(attack_target_path)
-	if nav_path != null:
-		nav_ref = get_node(nav_path)
+#	if nav_path != null:
+#		nav_ref = get_node(nav_path)
 	
 	set_process(true)
 	set_physics_process(true)

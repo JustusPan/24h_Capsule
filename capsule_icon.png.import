@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/capsule_icon.png-a61de49c126df3c52337f3d06f4c313c.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

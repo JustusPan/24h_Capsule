@@ -7,11 +7,9 @@
 [ext_resource path="res://helpers/ASCII_states.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-
 radius = 5.94937
 
 [sub_resource type="Animation" id=2]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite_dead:visible")
 tracks/0/interp = 1
@@ -114,7 +112,6 @@ tracks/7/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-
 resource_name = "setup"
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite_dead:visible")
@@ -154,7 +151,6 @@ tracks/2/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=4]
-
 radius = 6.889
 
 [node name="soldier_crab" type="KinematicBody2D"]

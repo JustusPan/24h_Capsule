@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/pico8_space_stars_transparent.png-b7212b0ca360d7d5ae28ab68deb9e14a.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

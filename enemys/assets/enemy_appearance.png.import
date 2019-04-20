@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/enemy_appearance.png-6f79955cfbdfde0f31db12f3a5155e0d.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

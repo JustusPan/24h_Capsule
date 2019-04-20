@@ -26,8 +26,8 @@ func _process(delta):
 	if timer > spawn_interval:
 		timer = 0
 		var cur = instance_scene.instance()
-		cur.init(target,navigation_ref)
 
 		cur.global_position = self.global_position
 		mount_point.add_child(cur)
+		cur.init(target,navigation_ref)
 	pass

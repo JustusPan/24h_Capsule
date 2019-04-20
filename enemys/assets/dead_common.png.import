@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/dead_common.png-1cfb067e257c10e26d86e9e3aaeaf23b.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

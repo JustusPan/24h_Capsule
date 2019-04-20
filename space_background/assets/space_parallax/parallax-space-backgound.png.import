@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/parallax-space-backgound.png-98c33719a8ca1eecc30a9370c63460eb.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

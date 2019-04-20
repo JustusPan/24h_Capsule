@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/parallax-space-ring-planet.png-6f8574d77d7290a7bc3286850ca709b0.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

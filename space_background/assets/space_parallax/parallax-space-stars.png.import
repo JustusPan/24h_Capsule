@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/parallax-space-stars.png-e961cd7178768e4b3705fa2ee66eeee0.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

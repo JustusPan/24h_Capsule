@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/pico8_far_planets.png-e79c1689014f674613cb47ed117a1402.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
